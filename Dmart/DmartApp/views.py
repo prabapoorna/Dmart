@@ -2,14 +2,15 @@
 from __future__ import unicode_literals
 
 from django.core import serializers
+from django.forms.models import model_to_dict
 from django.http import HttpResponse
-from django.shortcuts import render, redirect  
+from django.shortcuts import  redirect  
 from django.views.decorators.csrf import csrf_exempt
+import json
 
-from forms import PostForm
 from forms import UserForm
 from models import Post
-from models import User
+from models import Employee
 
 
 @csrf_exempt
@@ -25,14 +26,24 @@ def emp(request):
             except:  
                 pass  
     else:  
-        form = PostForm()  
-    user_data = User.objects.all()
-    user_json = serializers.serialize('json', user_data)
-    return HttpResponse(user_json, content_type='application/json')  
+        form = UserForm()  
+    user_data = Employee.objects.get(uid=data.get("uid"))
+    user = model_to_dict(user_data)
+    return HttpResponse(json.dumps(user))
+
+
+
+  
 def showAllEmployees():
-    post_data = User.objects.all()
-    post_json = serializers.serialize('json', post_data)
-    return HttpResponse(post_json, content_type='application/json')
+    user_data = Employee.objects.all()
+    user_json = serializers.serialize('json', user_data)
+    return HttpResponse(user_json, content_type='application/json')
+
+def update(request):
+    
+    data = request.POST.copy()
+    user = Employee.objects.get(id=data.get("uid"))
+
 
 
 def destroy(request, id):  

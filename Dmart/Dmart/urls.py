@@ -18,7 +18,7 @@ from django.contrib import admin
 
 
 urlpatterns = [
-     url(r'^DmartSale/', include('DmartSale.urls')),
+     url(r'^DmartApp/', include('DmartApp.urls')),
      url(r'^admin/', admin.site.urls),
-     url('admin/', admin.site.urls),
+     
 ]

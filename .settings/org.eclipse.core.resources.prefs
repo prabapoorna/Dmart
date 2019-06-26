@@ -1,6 +1,6 @@
 eclipse.preferences.version=1
-encoding//Dmart/DmartSale/admin.py=utf-8
-encoding//Dmart/DmartSale/apps.py=utf-8
-encoding//Dmart/DmartSale/models.py=utf-8
-encoding//Dmart/DmartSale/tests.py=utf-8
-encoding//Dmart/DmartSale/views.py=utf-8
+encoding//Dmart/DmartApp/admin.py=utf-8
+encoding//Dmart/DmartApp/apps.py=utf-8
+encoding//Dmart/DmartApp/models.py=utf-8
+encoding//Dmart/DmartApp/tests.py=utf-8
+encoding//Dmart/DmartApp/views.py=utf-8
